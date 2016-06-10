@@ -1,0 +1,29 @@
+{
+  "name": "timesheet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigonana/TimeSheet.git"
+  },
+  "keywords": [
+    "TimeSheet",
+    "NodeJS"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrigonana/TimeSheet/issues"
+  },
+  "homepage": "https://github.com/rodrigonana/TimeSheet#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "express-load": "^1.1.15",
+    "mysql": "^2.10.2"
+  }
+}
