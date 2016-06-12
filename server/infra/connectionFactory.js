@@ -1,11 +1,10 @@
 var mysql = require('mysql');
 
 var connectDB = function(){
-	console.log('Entrou');
 	return mysql.createConnection({
 		host:'localhost',
 		user:'root',
-		password:'abc123',
+		password:'',
 		database:'bd01'
 	});
 }

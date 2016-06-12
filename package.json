@@ -24,6 +24,7 @@
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "express-load": "^1.1.15",
+    "express-validator": "^2.20.5",
     "mysql": "^2.10.2"
   }
 }
