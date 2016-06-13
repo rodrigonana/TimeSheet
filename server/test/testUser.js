@@ -3,7 +3,7 @@ var http = require('http');
 var configuration1 = {
 	hostname: 'localhost',
 	port:3001,
-	path:'/user',
+	path:'/users',
 	method: 'post',
 	headers:{
 		'Accept':'application/json',
@@ -14,7 +14,17 @@ var configuration1 = {
 var configuration2 = {
 	hostname: 'localhost',
 	port:3001,
-	path:'/user',
+	path:'/users',
+	headers:{
+		'Accept':'application/json',
+		'Content-type':'application/json'
+	}
+};
+
+var configuration3 = {
+	hostname: 'localhost',
+	port:3001,
+	path:'/users/1',
 	headers:{
 		'Accept':'application/json',
 		'Content-type':'application/json'
@@ -22,7 +32,7 @@ var configuration2 = {
 };
 
 var user = {
-	name: '',
+	name: 'Rorigo',
 	email: 'rodrigo@xpto.com',
 	password: 'XsSWeY1f432UB546JdNd8Khb9i5h57ij'
 };
@@ -39,6 +49,14 @@ http.request(configuration1, function (res) {
 
 
 http.get(configuration2, function (res) {
+	console.log('GET:LIST')
+	console.log('Status Code:' + res.statusCode);
+	res.on('data',function(body){
+		console.log('BODY:' + body);
+	});
+});
+
+http.get(configuration3, function (res) {
 	console.log('GET')
 	console.log('Status Code:' + res.statusCode);
 	res.on('data',function(body){

@@ -13,7 +13,7 @@ module.exports = function(){
 
 /*
 create table users(
-  id int NOT NULL PRIMARY KEY,
+  id int NOT NULL PRIMARY KEY AUTO_INCREMEN,
   name varchar(255),
   email varchar(255),
   `password` varchar(255)

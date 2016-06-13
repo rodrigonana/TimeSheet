@@ -7,7 +7,7 @@ UserDAO.prototype.list = function(callback){
 }
 
 UserDAO.prototype.get = function(id, callback){
-	this._connection.query('', callback);
+	this._connection.query('select * from users where id = ?', id, callback);
 }
 
 UserDAO.prototype.save = function(user, callback){
