@@ -37,7 +37,6 @@ var user = {
 	password: 'XsSWeY1f432UB546JdNd8Khb9i5h57ij'
 };
 
-
 http.request(configuration1, function (res) {
 	console.log('POST')
 	console.log('Status Code:' + res.statusCode);
@@ -45,8 +44,6 @@ http.request(configuration1, function (res) {
 		console.log('BODY:' + body);
 	});
 }).end(JSON.stringify(user));
-
-
 
 http.get(configuration2, function (res) {
 	console.log('GET:LIST')

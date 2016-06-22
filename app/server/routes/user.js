@@ -5,6 +5,7 @@ module.exports = function(app){
 		var connection = app.infra.connectionFactory();
 		var userDAO = new app.infra.UserDAO(connection);
 		userDAO.get(req.params.id, function(errors, result ){
+			console.log('errors: ' + errors);
 			res.format({
 				json: function(){
 					res.json(result);
@@ -19,6 +20,7 @@ module.exports = function(app){
 		var userDAO = new app.infra.UserDAO(connection);
 		
 		userDAO.list(function(errors, result ){
+			console.log('errors: ' + errors);
 			res.format({
 				json: function(){
 					res.json(result);
@@ -47,6 +49,7 @@ module.exports = function(app){
 		var userDAO = new app.infra.UserDAO(connection);
 		
 		userDAO.save(req.body,function(errors, result ){
+			console.log('errors: ' + errors);
 			res.format({
 				json: function(){
 					res.json(result);
@@ -62,6 +65,7 @@ module.exports = function(app){
 		var userDAO = new app.infra.UserDAO(connection);
 
 		userDAO.delete(req.params.id,function(errors, result ){
+			console.log('errors: ' + errors);
 			res.format({
 				json: function(){
 					res.json(result);
@@ -76,5 +80,13 @@ module.exports = function(app){
 
 		var connection = app.infra.connectionFactory();
 		var userDAO = new app.infra.UserDAO(connection);
+		userDAO.update(req.params.id,function(errors, result ){
+			console.log('errors: ' + errors);
+			res.format({
+				json: function(){
+					res.json(result);
+				}
+			});
+		});
 	});	
 }

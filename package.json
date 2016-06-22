@@ -25,6 +25,7 @@
     "express": "^4.13.4",
     "express-load": "^1.1.15",
     "express-validator": "^2.20.5",
+    "jade": "^1.11.0",
     "mysql": "^2.10.2"
   }
 }
