@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "express-load": "^1.1.15",
     "express-validator": "^2.20.5",
     "jade": "^1.11.0",
-    "mysql": "^2.10.2"
+    "mysql": "^2.10.2",
+    "socket.io": "^1.4.8"
   }
 }
