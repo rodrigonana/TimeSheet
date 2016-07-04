@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="MainApp">
+	<meta charset="UTF-8">
+	<head>
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+		<link rel="stylesheet" href="/css/custom.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+	    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+	    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+	    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+	    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+	    <!-- Verificar -->
+	    <script src="http://ngmaterial.assets.s3.amazonaws.com/svg-assets-cache.js"></script>
+	    <script src="service.js"></script>
+	    <script src="client/user/user.js"></script>
+	    <script src="client/user/user.controller.js"></script>
+		<title>Timesheet</title>
+	</head>
+
+	<body>
+		<div  ng-controller="MainAppCtrl" layout="column" layout-align="center center" layout-fill="layout-fill">
+		  <div layout="column" class="loginBox md-whiteframe-z1">
+		    <md-toolbar>
+		      <h2 class="md-toolbar-tools">
+		      	<span>Login</span>
+		      </h2>
+		    </md-toolbar>
+		    <md-content layout="column" class="md-padding">
+		      <md-input-container>
+		        <label>EmailAddress</label>
+		        <input type="email" ng-model="username"/>
+		      </md-input-container>
+		      <md-input-container>
+		        <label>Password</label>
+		        <input type="password" ng-model="password"/>
+		      </md-input-container>
+		      <div layout="row" layout-align="center center" style="padding-top:20px;">
+		        <md-button class="md-raised md-primary">Login</md-button>
+		        <div flex="flex"></div>
+		        <md-button href="" md-no-ink="md-no-ink">Forgot Password</md-button>
+		      </div>
+		    </md-content>
+		  </div>
+		</div>
+		
+		<div ng-view/>
+	</body>
+</html>

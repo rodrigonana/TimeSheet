@@ -4,7 +4,7 @@ angular.module('admin.user.controller', [])
 	$routeProvider
 	.when('/admin/user', {
 		controller: 'UserCtrl',
-		templateUrl: 'client/user/user.html?nd=' + Date.now(),
+		templateUrl: '/user/user.html?nd=' + Date.now(),
 		resolve: {
 		
 		}
