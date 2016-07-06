@@ -2,9 +2,13 @@ angular.module('admin.user.controller', [])
 
 .config(['$routeProvider', function($routeProvider) {
 	$routeProvider
-	.when('/admin/user', {
+  .when('/', { 
+    controller: 'UserSignInCtrl', 
+    templateUrl: 'app/user/login.html'
+  })
+	.when('/admin/users', {
 		controller: 'UserCtrl',
-		templateUrl: '/user/user.html?nd=' + Date.now(),
+		templateUrl: 'app/user/users.html?nd=' + Date.now(),
 		resolve: {
 		
 		}
@@ -55,8 +59,12 @@ angular.module('admin.user.controller', [])
 
 }])
 
-.controller('UserSignInCtrl', ['$scope', function($scope) {
-
+.controller('UserSignInCtrl', ['$scope', function($scope, $rootScope) {
+  $scope.signin = function() {
+    $rootScope.user_logged = true;
+    $scope.coverage = data.parameters.coverage;
+    $location.path('/admin/users');
+  };
 }])
 
 .controller('UserChangePasswordCtrl', ['$scope', function($scope) {
