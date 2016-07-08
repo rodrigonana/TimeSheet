@@ -8,7 +8,7 @@ angular.module('admin.user.controller', [])
   })
 	.when('/admin/users', {
 		controller: 'UserCtrl',
-		templateUrl: 'app/user/users.html?nd=' + Date.now(),
+		templateUrl: 'app/user/user.html?nd=' + Date.now(),
 		resolve: {
 		
 		}
@@ -16,7 +16,6 @@ angular.module('admin.user.controller', [])
 }])
 
 .controller('UserCtrl', ['$scope', function($scope) {
-	console.log("ok");
 	var imagePath = 'https://material.angularjs.org/latest/img/list/60.jpeg?0';
     $scope.messages = [{
       face : imagePath,
@@ -63,7 +62,8 @@ angular.module('admin.user.controller', [])
   $scope.signin = function() {
     $rootScope.user_logged = true;
     $scope.coverage = data.parameters.coverage;
-    $location.path('/admin/users');
+    console.log("ok");
+    $location.path('#/admin/users');
   };
 }])
 
