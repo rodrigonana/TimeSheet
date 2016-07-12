@@ -14,4 +14,5 @@ app.config(function($routeProvider, $locationProvider)
 
 app.run(function($rootScope, $location, $window) {
    $rootScope.user_logged = false;
+   console.log($rootScope.user_logged);
 });

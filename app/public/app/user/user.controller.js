@@ -60,10 +60,12 @@ angular.module('admin.user.controller', [])
 
 .controller('UserSignInCtrl', ['$scope', function($scope, $rootScope) {
   $scope.signin = function() {
+
+    console.log("-->>" + $rootScope.user_logged);
     $rootScope.user_logged = true;
-    $scope.coverage = data.parameters.coverage;
     console.log("ok");
-    $location.path('#/admin/users');
+    console.log($rootScope.user_logged);
+    $location.path('/admin/users');
   };
 }])
 
