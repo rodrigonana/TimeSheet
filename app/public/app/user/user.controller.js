@@ -58,10 +58,11 @@ angular.module('admin.user.controller', [])
 
 }])
 
-.controller('UserSignInCtrl', ['$scope', function($scope, $rootScope) {
+.controller('UserSignInCtrl', ['$scope','$rootScope','$location', function($scope, $rootScope,$location) {
+  console.log("-->>" + $rootScope);
   $scope.signin = function() {
 
-    console.log("-->>" + $rootScope.user_logged);
+    console.log("-->>" + $rootScope);
     $rootScope.user_logged = true;
     console.log("ok");
     console.log($rootScope.user_logged);
