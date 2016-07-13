@@ -15,7 +15,13 @@ angular.module('admin.user.controller', [])
 	})
 }])
 
-.controller('UserCtrl', ['$scope', function($scope) {
+.controller('UserCtrl', ['$scope', 'User', function($scope, User) {
+
+console.log(User);
+    User.query(function(data) {
+        console.log(data);
+    });
+
 	var imagePath = 'https://material.angularjs.org/latest/img/list/60.jpeg?0';
     $scope.messages = [{
       face : imagePath,
@@ -59,12 +65,8 @@ angular.module('admin.user.controller', [])
 }])
 
 .controller('UserSignInCtrl', ['$scope','$rootScope','$location', function($scope, $rootScope,$location) {
-  console.log("-->>" + $rootScope);
   $scope.signin = function() {
-
-    console.log("-->>" + $rootScope);
     $rootScope.user_logged = true;
-    console.log("ok");
     console.log($rootScope.user_logged);
     $location.path('/admin/users');
   };

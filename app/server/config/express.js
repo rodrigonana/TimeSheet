@@ -11,8 +11,8 @@ module.exports = function(){
 	app.use(body_parser.json());
 	app.use(express_validator());
 
-	express_load('routes',{cwd:'app/server'})
-	.then('infra')
+	express_load('infra',{cwd:'app/server'})
+	.then('routes')
 	.into(app);
 	return app;
 }
