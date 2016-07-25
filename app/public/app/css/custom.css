@@ -6,3 +6,6 @@
 .stretch input  {
   width: 100%
 }
+
+.inputdemoBasicUsage .md-datepicker-button {
+  width: 36px; }
