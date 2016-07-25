@@ -2,7 +2,7 @@ angular.module('admin.user', ['admin.user.controller'])
 
 .factory('User', ['$resource',
 	function($resource){
-		return $resource('rest/user/:id/:action', null, {
+		return $resource('rest/users/:id/:action', null, {
 			'query': {isArray: false},
 			'update': { method: 'PUT' },
 			'signin': { method: 'POST', params: {action:'signin'} },
