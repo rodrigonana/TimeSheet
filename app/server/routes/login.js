@@ -1,13 +1,15 @@
 module.exports = function(app){
-	app.get('/users/signup', function(req, res){
-		console.log("------ signup ------");
+	app.get('/users/signin', function(req, res){
+		console.log("------ signin ------");
 		var connection = app.infra.connectionFactory();
 		var loginDAO = new app.infra.LoginDAO(connection);
 
 		session = req.session;
 		session.email="req.body.email";
 
-		loginDAO.list(function(errors, result){
+		loginDAO.login(req.query.email, req.query.password, function(errors, result){
+			console.log("erros");
+			console.log(errors);
 			res.format({
 				html: function(){
 					console.log("HTML");
@@ -17,6 +19,7 @@ module.exports = function(app){
 				},
 				json: function(){
 					console.log("JSON");
+					console.log(result);
 					res.json(result);
 				}
 			});

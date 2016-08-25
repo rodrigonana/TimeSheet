@@ -64,18 +64,6 @@ console.log(User);
     }];
 }])
 
-.controller('UserSignInCtrl', ['$scope','$rootScope','$location', function($scope, $rootScope,$location) {   
-    console.log("UserSignInCtrl");    
-   $scope.signin = function() {      
-        console.log($scope.username);
-        console.log($scope.password);
-                               
-//    $rootScope.user_logged = true;
-//    console.log($rootScope.user_logged);
-//    $location.path('/admin/users');
-  };
-}])
-
 .controller('UserAddCtrl', ['$scope', function($scope) {
   $scope.user = {
       title: 'Developer',
@@ -103,7 +91,13 @@ console.log(User);
 
 .controller('UserSignInCtrl', ['$scope','$rootScope','$location', 'User', function($scope,$rootScope,$location, User) {
     $scope.signin = function(){
-     
+        User.signin({email:$scope.user.email, password:$scope.user.password} , function(data) {
+          console.log(data);
+            
+          /*  $rootScope.user_logged = false;
+            $location.path("/admin/users");*/
+          
+        });
     };
 }])
 

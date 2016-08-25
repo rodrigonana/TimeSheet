@@ -13,7 +13,7 @@
 
           <md-input-container>
             <label>Email</label>
-            <input required type="email" ng-model="username" name="username"/>
+            <input required type="email" ng-model="user.email" name="username"/>
             <div ng-messages="loginForm.username.$error">
                 <div ng-message="required">Campo obrigatório</div>
             </div>  
@@ -21,7 +21,7 @@
 
           <md-input-container>
             <label>Senha</label>
-            <input required type="password" ng-model="password" name="password"/>
+            <input required type="password" ng-model="user.password" name="password"/>
             <div ng-messages="loginForm.password.$error">
                 <div ng-message="required">Campo obrigatório</div>
             </div>

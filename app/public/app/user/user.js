@@ -5,7 +5,8 @@ angular.module('admin.user', ['admin.user.controller'])
 		return $resource('users/:id/:action', null, {
 			'query': {isArray: false},
 			'update': { method: 'PUT' },
-			'signin': { method: 'POST', params: {action:'signin'} },
+			'signin': { method: 'GET', params: {action:'signin'} },
+			'signup': { method: 'POST', params: {action:'signup'} },
 			'signout': { method: 'GET', params: {action:'signout'} },
 			'auth': { method: 'GET', params: {action:'auth'} },
 			'forgotPassword': { method: 'POST', params: {action:'forgot-password'} },
