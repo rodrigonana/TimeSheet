@@ -10,6 +10,9 @@ module.exports = function(){
 	app.use(body_parser.urlencoded({extended: true}));
 	app.use(body_parser.json());
 	app.use(express_validator());
+	
+	/*https://codeforgeek.com/2014/09/manage-session-using-node-js-express-4/*/
+
 	app.use(express_session({secret: 'XPTO'}));
 
 	express_load('infra',{cwd:'app/server'})

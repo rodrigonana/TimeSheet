@@ -6,6 +6,11 @@ LoginDAO.prototype.list = function(callback){
 	this._connection.query('select * from users', callback);
 }
 
+LoginDAO.prototype.login = function(email, password, callback){
+	console.log(this._connection.query('select * from users where email = ? and password = ?', email , password, callback));
+
+}
+
 module.exports = function(){
 	return LoginDAO;
 }

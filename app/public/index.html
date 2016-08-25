@@ -14,16 +14,20 @@
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-resource.min.js"></script>
+   
 
    <!-- Verificar -->
    <script src="http://ngmaterial.assets.s3.amazonaws.com/svg-assets-cache.js"></script>
    <script src="/app/app.js"></script>
+   
    <script src="/app/user/user.js"></script>
    <script src="/app/user/user.controller.js"></script>
+  
    <title>Timesheet</title>
 
 </head>
-   <body>
+   <body ng-controller="MainCtrl">
       <div>
          <md-menu-bar ng-show="user_logged">
             <md-menu>
