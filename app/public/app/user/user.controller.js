@@ -88,12 +88,10 @@ console.log(User);
 
 }])
 
-.controller('UserSignInCtrl', ['$scope','$rootScope','$location', function($scope, $rootScope,$location) {
-  $scope.signin = function() {
-    $rootScope.user_logged = true;
-    console.log($rootScope.user_logged);
-    $location.path('/admin/users');
-  };
+.controller('UserSignInCtrl', ['$scope','$rootScope','$location', 'User', function($scope,$rootScope,$location, User) {
+    $scope.signin = function(){
+     
+    };
 }])
 
 .controller('UserChangePasswordCtrl', ['$scope', function($scope) {
