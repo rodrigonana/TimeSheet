@@ -1,33 +1,39 @@
-<div  layout="column" layout-align="center center" layout-fill="layout-fill">
- 
-  <div layout="column" class="loginBox md-whiteframe-z1">
+<form name="loginForm" ng-submit="signin()" ng-controller="UserSignInCtrl">
+    <div  layout="column" layout-align="center center" layout-fill="layout-fill">
 
-    <md-toolbar>
-      <h2 class="md-toolbar-tools">
-      	<span>Login</span>
-      </h2>
-    </md-toolbar>
-    
-    <md-content layout="column" class="md-padding">
+      <div layout="column" class="loginBox md-whiteframe-z1">
 
-      <md-input-container>
-        <label>EmailAddress</label>
-        <input type="email" ng-model="user.email"/>
-      </md-input-container>
+        <md-toolbar>
+          <h2 class="md-toolbar-tools">
+            <span>Login</span>
+          </h2>
+        </md-toolbar>
 
-      <md-input-container>
-        <label>Password</label>
-        <input type="password" ng-model="user.password"/>
-      </md-input-container>
+        <md-content layout="column" class="md-padding">
 
-      <div layout="row" layout-align="center center" style="padding-top:20px;">
-        <md-button ng-click="signin()" class="md-raised md-primary">Login</md-button>
-        <div flex="flex"></div>
-        <md-button href="#/admin/users" md-no-ink="md-no-ink">Forgot Password</md-button>
+          <md-input-container>
+            <label>Email</label>
+            <input required type="email" ng-model="username" name="username"/>
+            <div ng-messages="loginForm.username.$error">
+                <div ng-message="required">Campo obrigatório</div>
+            </div>  
+          </md-input-container>
+
+          <md-input-container>
+            <label>Senha</label>
+            <input required type="password" ng-model="password" name="password"/>
+            <div ng-messages="loginForm.password.$error">
+                <div ng-message="required">Campo obrigatório</div>
+            </div>
+          </md-input-container>
+
+          <div layout="row" layout-align="center center" style="padding-top:20px;">
+              <md-button class="md-raised md-primary" type="submit">Login</md-button>
+<!--            <md-button ng-click="signin()" class="md-raised md-primary">Login</md-button>-->
+            <div flex="flex"></div>
+            <md-button href="#/admin/users" md-no-ink="md-no-ink">Forgot Password</md-button>
+          </div>
+        </md-content>
       </div>
-
-    </md-content>
-
-  </div>
-
-</div>
+    </div>
+</form>

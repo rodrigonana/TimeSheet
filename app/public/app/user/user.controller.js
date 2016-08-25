@@ -101,15 +101,12 @@ console.log(User);
 
 }])
 
-<<<<<<< HEAD
 .controller('UserSignInCtrl', ['$scope','$rootScope','$location', 'User', function($scope,$rootScope,$location, User) {
     $scope.signin = function(){
      
     };
 }])
 
-=======
->>>>>>> origin/master
 .controller('UserChangePasswordCtrl', ['$scope', function($scope) {
 
 }])
