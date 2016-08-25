@@ -3,6 +3,10 @@ module.exports = function(app){
 		console.log("------ signup ------");
 		var connection = app.infra.connectionFactory();
 		var loginDAO = new app.infra.LoginDAO(connection);
+
+		session = req.session;
+		sess.email="req.body.email";
+
 		loginDAO.list(function(errors, result){
 			res.format({
 				html: function(){

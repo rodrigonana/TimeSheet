@@ -8,6 +8,7 @@ var app = angular.module('MainApp',[
  
 app.config(function($routeProvider, $locationProvider)
 {
+	//$locationProvider.html5Mode(true);
 /*	$locationProvider.html5Mode(true);*/
 	$routeProvider.otherwise ({ redirectTo: '/' });
 })
