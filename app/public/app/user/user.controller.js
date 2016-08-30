@@ -22,16 +22,24 @@ angular.module('admin.user.controller', [])
   })
 }])
 
-.controller('UserSignInCtrl', ['$scope','$rootScope','$location', 'User', function($scope,$rootScope,$location, User) {
+.controller('UserSignInCtrl', ['$scope','$rootScope','$location', '$mdDialog', 'User', function($scope,$rootScope,$location,$mdDialog,User) {
     $scope.signin = function(){
-        User.signin({email:$scope.user.email, password:$scope.user.password} , function(data) {
-          if( data != null && typeof data !== 'undefined' ){
-            $rootScope.user_logged = false;
-            $location.path("/admin/users");
-          } else {
-            alert ("Erro no login");
-          }
-        });
+        User.signin({email:$scope.user.email, password:$scope.user.password}).$promise.then(function(data) {
+            if( data != null && typeof data.$promisse !== 'undefined' ){
+                $rootScope.user_logged = false;
+                $location.path("/admin/users");
+            } else {
+                $mdDialog.show(
+                  $mdDialog.alert()
+                    .parent(angular.element(document.querySelector('#popupContainer')))
+                    .clickOutsideToClose(true)
+                    .title('Erro')
+                    .textContent('Usuário ou senha inválidos!')
+                    .ariaLabel('Alert Dialog Demo')
+                    .ok('Fechar')
+                );
+            }
+         });
     };
 }])
 
