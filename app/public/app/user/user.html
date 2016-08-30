@@ -12,12 +12,12 @@
 
   <md-content>
     <md-list>
-      <md-list-item class="md-3-line" ng-repeat="item in messages">
-        <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}">
+      <md-list-item class="md-3-line" ng-repeat="user in users">
+        <img ng-src="https://material.angularjs.org/latest/img/list/60.jpeg?0?{{$index}}" class="md-avatar" alt="{{user.name}}">
         <div class="md-list-item-text">
-          <h3>{{item.what}}</h3>
-          <h4>{{item.who}}</h4>
-          <p>{{item.notes}}</p>
+          <h3>{{user.name}}</h3>
+          <h4>{{user.email}}</h4>
+          <p>{{user.password}}</p>
         </div>
         <md-divider md-inset="" ng-if="!$last"></md-divider>
       </md-list-item>

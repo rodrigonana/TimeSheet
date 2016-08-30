@@ -8,19 +8,12 @@ module.exports = function(app){
 		session.email="req.body.email";
 
 		loginDAO.login(req.query.email, req.query.password, function(errors, result){
-			console.log("erros");
-			console.log(errors);
 			res.format({
 				html: function(){
-					console.log("HTML");
-					/users/*
-					res.render('', {lista: result})
-					*/users/
+					res.render('', {lista: result});
 				},
 				json: function(){
-					console.log("JSON");
-					console.log(result);
-					res.json(result);
+					res.json(result[0]);
 				}
 			});
 		});

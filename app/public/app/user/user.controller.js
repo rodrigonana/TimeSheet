@@ -22,46 +22,28 @@ angular.module('admin.user.controller', [])
   })
 }])
 
+.controller('UserSignInCtrl', ['$scope','$rootScope','$location', 'User', function($scope,$rootScope,$location, User) {
+    $scope.signin = function(){
+        User.signin({email:$scope.user.email, password:$scope.user.password} , function(data) {
+          if( data != null && typeof data !== 'undefined' ){
+            $rootScope.user_logged = false;
+            $location.path("/admin/users");
+          } else {
+            alert ("Erro no login");
+          }
+        });
+    };
+}])
 
 .controller('UserCtrl', ['$scope', 'User', function($scope, User) {
-
-console.log(User);
-    User.query(function(data) {
-        console.log(data);
-    });
-
-	var imagePath = 'https://material.angularjs.org/latest/img/list/60.jpeg?0';
-    $scope.messages = [{
-      face : imagePath,
-      what: 'Brunch this weekend?',
-      who: 'Min Li Chan',
-      when: '3:08PM',
-      notes: " I'll be in your neighborhood doing errands"
-    }, {
-      face : imagePath,
-      what: 'Brunch this weekend?',
-      who: 'Min Li Chan',
-      when: '3:08PM',
-      notes: " I'll be in your neighborhood doing errands"
-    }, {
-      face : imagePath,
-      what: 'Brunch this weekend?',
-      who: 'Min Li Chan',
-      when: '3:08PM',
-      notes: " I'll be in your neighborhood doing errands"
-    }, {
-      face : imagePath,
-      what: 'Brunch this weekend?',
-      who: 'Min Li Chan',
-      when: '3:08PM',
-      notes: " I'll be in your neighborhood doing errands"
-    }, {
-      face : imagePath,
-      what: 'Brunch this weekend?',
-      who: 'Min Li Chan',
-      when: '3:08PM',
-      notes: " I'll be in your neighborhood doing errands"
-    }];
+  $scope.users = [];
+  User.query(function(data) {
+    if (data != null && typeof data !== 'undefined' ){
+      for (var i = 0; i < data.length; i++) {
+         $scope.users.push(data[i]);
+      };
+    }
+  });
 }])
 
 .controller('UserAddCtrl', ['$scope', function($scope) {
@@ -77,7 +59,6 @@ console.log(User);
       biography: 'Loves kittens, snowboarding, and can type at 130 WPM.\n\nAnd rumor has it she bouldered up Castle Craig!',
       postalCode: '94043'
     };
-
     $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
     'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +
     'WY').split(' ').map(function(state) {
@@ -87,18 +68,6 @@ console.log(User);
 
 .controller('UserEditCtrl', ['$scope', function($scope) {
 
-}])
-
-.controller('UserSignInCtrl', ['$scope','$rootScope','$location', 'User', function($scope,$rootScope,$location, User) {
-    $scope.signin = function(){
-        User.signin({email:$scope.user.email, password:$scope.user.password} , function(data) {
-          console.log(data);
-            
-          /*  $rootScope.user_logged = false;
-            $location.path("/admin/users");*/
-          
-        });
-    };
 }])
 
 .controller('UserChangePasswordCtrl', ['$scope', function($scope) {
