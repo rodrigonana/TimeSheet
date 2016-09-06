@@ -1,5 +1,5 @@
 module.exports = function(app){
-	app.get('/users/:id', function(req, res){
+	app.get('api/users/:id', function(req, res){
 		console.log("------ user:get ------");
 		
 		var connection = app.infra.connectionFactory();
@@ -13,7 +13,7 @@ module.exports = function(app){
 			});
 		});
 	})
-	.get('/users/', function(req, res){
+	.get('api/users/', function(req, res){
 		console.log("------ user:get:list ------");
 	
 		var connection = app.infra.connectionFactory();
@@ -28,7 +28,7 @@ module.exports = function(app){
 			});
 		});
 	})
-	.post('/users', function(req, res){
+	.post('api/users', function(req, res){
 		console.log("------ user:post ------");
 
 		req.assert('name', 'Nome é um campo obrigatório').notEmpty();
@@ -57,7 +57,7 @@ module.exports = function(app){
 			});
 		});
 	})
-	.delete('/users/:id', function(req, res){
+	.delete('api/users/:id', function(req, res){
 		console.log("------ user:delete ------");
 		var user = req.body;
 
@@ -74,7 +74,7 @@ module.exports = function(app){
 		});
 
 	})
-	.put('/users', function(req, res){
+	.put('api/users', function(req, res){
 		console.log("------ user:update ------");
 		var user = req.body;
 

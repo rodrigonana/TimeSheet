@@ -4,28 +4,29 @@ angular.module('admin.user.controller', [])
 	$routeProvider
   .when('/', { 
     controller: 'UserSignInCtrl', 
-    templateUrl: 'app/user/login.html'      
+    templateUrl: 'web/user/login.html'      
   })
 	.when('/admin/users', {
 		controller: 'UserCtrl',
-		templateUrl: 'app/user/user.html?nd=' + Date.now(),
+		templateUrl: 'web/user/user.html?nd=' + Date.now(),
 		resolve: {
 		
 		}
 	})
   .when('/admin/user', {
     controller: 'UserAddCtrl',
-    templateUrl: 'app/user/user-form.html?nd=' + Date.now(),
+    templateUrl: 'web/user/user-form.html?nd=' + Date.now(),
     resolve: {
-    
+      
     }
   })
 }])
 
 .controller('UserSignInCtrl', ['$scope','$rootScope','$location', '$mdDialog', 'User', function($scope,$rootScope,$location,$mdDialog,User) {
+  console.log("teste");
     $scope.signin = function(){
         User.signin({email:$scope.user.email, password:$scope.user.password}).$promise.then(function(data) {
-            if( data != null && typeof data.$promisse !== 'undefined' ){
+            if( typeof data !== 'undefined' && typeof data.id !== 'undefined'){
                 $rootScope.user_logged = false;
                 $location.path("/admin/users");
             } else {

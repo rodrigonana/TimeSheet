@@ -2,7 +2,7 @@ angular.module('admin.user', ['admin.user.controller'])
 
 .factory('User', ['$resource',
 	function($resource){
-		return $resource('users/:id/:action', null, {
+		return $resource('api/users/:id/:action', null, {
 			'query': {isArray: true},
 			'update': { method: 'PUT' },
 			'signin': { method: 'GET', params: {action:'signin'} },
